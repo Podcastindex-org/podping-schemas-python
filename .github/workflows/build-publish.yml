@@ -67,9 +67,7 @@ jobs:
       run: |
         old=$(ls -1 dist/*pp39-pypy39_pp73*.whl)
         new=$(echo $old | sed -e 's/pp39-pypy39_pp73-manylinux_2_17_x86_64/py3-none-any/')
-        #mv -v "$old" "$new"
-        #ln "$old" "$new"
-        cp "$old" "$new"
+        sudo mv -v "$old" "$new"
     - name: Build sdist
       run: poetry build --format sdist
     #- name: Publish wheels to PyPI
@@ -86,5 +84,5 @@ jobs:
       with:
         files: |
           dist/*-py3-none-any.whl
-          dist/*cp*-manylinux*.whl
+          dist/*-manylinux*.whl
           dist/*.tar.gz
