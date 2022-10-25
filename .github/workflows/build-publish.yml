@@ -21,8 +21,6 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install poetry twine
-        apt update
-        apt install -y rename
     - name: Copy schema files from upstream
       run: ./copy-schema-files.sh
     - name: Build manylinux Python 3.8 wheels
@@ -66,7 +64,10 @@ jobs:
         pip-wheel-args: '-w ./dist --no-deps --no-build-isolation'
         system-packages: 'capnproto'
     - name: Rename pypy package build
-      run: rename pp39-pypy39_pp73-manylinux_2_17_x86_64 py3-none-any dist/*pypy39_pp73*.whl
+      run: |
+        old=$(ls -1 dist/*pp39-pypy39_pp73*.whl)
+        new=$(echo $old | sed -e 's/pp39-pypy39_pp73-manylinux_2_17_x86_64/py3-none-any/')
+        mv -v "$old" "$new"
     - name: Build sdist
       run: poetry build --format sdist
     #- name: Publish wheels to PyPI
