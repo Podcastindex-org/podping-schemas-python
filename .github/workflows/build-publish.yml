@@ -92,5 +92,5 @@ jobs:
       if: startsWith(github.ref, 'refs/tags/')
       with:
         files: |
-          diest/*.whl
+          dist/*.whl
           dist/*.tar.gz
