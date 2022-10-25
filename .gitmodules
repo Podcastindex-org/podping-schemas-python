@@ -1,0 +1,4 @@
+[submodule "podping-schemas"]
+	path = podping-schemas
+	url = https://github.com/Podcastindex-org/podping-schemas.git
+	branch = main
