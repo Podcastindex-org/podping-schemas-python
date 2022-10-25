@@ -24,7 +24,7 @@ jobs:
     - name: Copy schema files from upstream
       run: ./copy-schema-files.sh
     - name: Build manylinux Python 3.8 wheels
-      uses: RalfG/python-wheels-manylinux-build@v0.5.0-manylinux2014_x86_64
+      uses: agates/python-wheels-manylinux-build@v0.5.1
       with:
         pre-build-command: 'sh pre-build.sh'
         python-versions: 'cp38-cp38'
@@ -32,7 +32,7 @@ jobs:
         pip-wheel-args: '-w ./dist --no-deps --no-build-isolation'
         system-packages: 'capnproto'
     - name: Build manylinux Python 3.9 wheels
-      uses: RalfG/python-wheels-manylinux-build@v0.5.0-manylinux2014_x86_64
+      uses: agates/python-wheels-manylinux-build@v0.5.1
       with:
         pre-build-command: 'sh pre-build.sh'
         python-versions: 'cp39-cp39'
@@ -40,7 +40,7 @@ jobs:
         pip-wheel-args: '-w ./dist --no-deps --no-build-isolation'
         system-packages: 'capnproto'
     - name: Build manylinux Python 3.10 wheels
-      uses: RalfG/python-wheels-manylinux-build@v0.5.0-manylinux2014_x86_64
+      uses: agates/python-wheels-manylinux-build@v0.5.1
       with:
         pre-build-command: 'sh pre-build.sh'
         python-versions: 'cp310-cp310'
@@ -48,7 +48,7 @@ jobs:
         pip-wheel-args: '-w ./dist --no-deps --no-build-isolation'
         system-packages: 'capnproto'
     - name: Build manylinux Python 3.11 wheels
-      uses: RalfG/python-wheels-manylinux-build@v0.5.0-manylinux2014_x86_64
+      uses: agates/python-wheels-manylinux-build@v0.5.1
       with:
         pre-build-command: 'sh pre-build.sh'
         python-versions: 'cp311-cp311'
@@ -56,7 +56,7 @@ jobs:
         pip-wheel-args: '-w ./dist --no-deps --no-build-isolation'
         system-packages: 'capnproto'
     - name: Build manylinux Python3 pypy wheels
-      uses: RalfG/python-wheels-manylinux-build@v0.5.0-manylinux2014_x86_64
+      uses: agates/python-wheels-manylinux-build@v0.5.1
       with:
         pre-build-command: 'sh pre-build.sh'
         python-versions: 'pp39-pypy39_pp73'
