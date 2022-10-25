@@ -63,11 +63,13 @@ jobs:
         build-requirements: 'poetry-core setuptools https://github.com/agates/capnpy/releases/download/0.9.1dev0/capnpy-0.9.1.dev0-py3-none-any.whl'
         pip-wheel-args: '-w ./dist --no-deps --no-build-isolation'
         system-packages: 'capnproto'
+    - name: Fix dist permissions
+      run: sudo chmod -R 777 dist
     - name: Rename pypy package build
       run: |
         old=$(ls -1 dist/*pp39-pypy39_pp73*.whl)
         new=$(echo $old | sed -e 's/pp39-pypy39_pp73-manylinux_2_17_x86_64/py3-none-any/')
-        sudo mv -v "$old" "$new"
+        mv -v "$old" "$new"
     - name: Build sdist
       run: poetry build --format sdist
     #- name: Publish wheels to PyPI
