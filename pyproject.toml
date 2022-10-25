@@ -24,5 +24,5 @@ capnpy = { version = "^0.9.0", allow-prereleases = true }
 
 
 [build-system]
-requires = ["poetry-core", "setuptools", "capnpy"]
+requires = ["poetry-core", "setuptools", "capnpy==0.9.1-dev0"]
 build-backend = "poetry.core.masonry.api"

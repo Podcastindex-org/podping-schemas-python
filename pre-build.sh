@@ -1,6 +1,6 @@
 #!/bin/sh
 
-version="$1"
+#version="$1"
 
 # Since we have to install epel-release under yum first, install capnproto here
 if command -v apt-get >/dev/null; then
@@ -16,4 +16,4 @@ fi
 # Otherwise we get multiple version .so files, creating large wheels
 find ./ -type f \( -iname '*.so' -o -iname '*.pyx' -o -iname '*.c' \) -delete
 
-sed -i -e 's/"capnpy"]/"https:\/\/github.com\/agates\/capnpy\/releases\/download\/0.9.1dev0\/capnpy-0.9.1.dev0-'"$version"'.whl"]/g' pyproject.toml
+#sed -i -e 's/"capnpy"]/"https:\/\/github.com\/agates\/capnpy\/releases\/download\/0.9.1dev0\/capnpy-0.9.1.dev0-'"$version"'.whl"]/g' pyproject.toml
