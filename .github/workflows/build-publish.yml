@@ -30,7 +30,7 @@ jobs:
         python-versions: 'cp38-cp38'
         build-requirements: 'poetry-core setuptools https://github.com/agates/capnpy/releases/download/0.9.1dev0/capnpy-0.9.1.dev0-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_28_x86_64.whl'
         pip-wheel-args: '-w ./dist --no-deps --no-build-isolation'
-        system-packages: 'epel-release'
+        system-packages: 'capnproto'
     - name: Build manylinux Python 3.9 wheels
       uses: RalfG/python-wheels-manylinux-build@v0.5.0-manylinux2014_x86_64
       with:
@@ -38,7 +38,7 @@ jobs:
         python-versions: 'cp39-cp39'
         build-requirements: 'poetry-core setuptools https://github.com/agates/capnpy/releases/download/0.9.1dev0/capnpy-0.9.1.dev0-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_28_x86_64.whl'
         pip-wheel-args: '-w ./dist --no-deps --no-build-isolation'
-        system-packages: 'epel-release'
+        system-packages: 'capnproto'
     - name: Build manylinux Python 3.10 wheels
       uses: RalfG/python-wheels-manylinux-build@v0.5.0-manylinux2014_x86_64
       with:
@@ -46,7 +46,7 @@ jobs:
         python-versions: 'cp310-cp310'
         build-requirements: 'poetry-core setuptools https://github.com/agates/capnpy/releases/download/0.9.1dev0/capnpy-0.9.1.dev0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_28_x86_64.whl'
         pip-wheel-args: '-w ./dist --no-deps --no-build-isolation'
-        system-packages: 'epel-release'
+        system-packages: 'capnproto'
     - name: Build manylinux Python 3.11 wheels
       uses: RalfG/python-wheels-manylinux-build@v0.5.0-manylinux2014_x86_64
       with:
@@ -54,7 +54,7 @@ jobs:
         python-versions: 'cp311-cp311'
         build-requirements: 'poetry-core setuptools https://github.com/agates/capnpy/releases/download/0.9.1dev0/capnpy-0.9.1.dev0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_28_x86_64.whl'
         pip-wheel-args: '-w ./dist --no-deps --no-build-isolation'
-        system-packages: 'epel-release'
+        system-packages: 'capnproto'
     - name: Build manylinux Python3 pypy wheels
       uses: RalfG/python-wheels-manylinux-build@v0.5.0-manylinux2014_x86_64
       with:
@@ -62,7 +62,9 @@ jobs:
         python-versions: 'pp39-pypy39_pp73'
         build-requirements: 'poetry-core setuptools https://github.com/agates/capnpy/releases/download/0.9.1dev0/capnpy-0.9.1.dev0-py3-none-any.whl'
         pip-wheel-args: '-w ./dist --no-deps --no-build-isolation'
-        system-packages: 'epel-release'
+        system-packages: 'capnproto'
+    - name: Rename pypy package build
+      run: rename pp39-pypy39_pp73-manylinux_2_17_x86_64 py3-none-any dist/*pypy39_pp73*.whl
     - name: Build sdist
       run: poetry build --format sdist
     #- name: Publish wheels to PyPI

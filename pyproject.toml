@@ -8,7 +8,7 @@ readme = "README.md"
 packages = [{include = "podping_schemas", from = "src"}]
 build = "build.py"
 include = [
-    { path = "src/**/*.capnp" },
+    { path = "src/**/*.capnp", format = "sdist" },
     { path = "src/**/*.py", format = "wheel" },
     { path = "src/**/*.so", format = "wheel"},
 ]
