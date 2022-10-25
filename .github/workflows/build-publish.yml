@@ -32,7 +32,9 @@ jobs:
         pip-wheel-args: '-w ./dist --no-deps --no-build-isolation'
         system-packages: 'capnproto'
     - name: Move 3.8 wheel
-      run: sudo mv -v dist/*-manylinux_2_17_x86_64*.whl .
+      run: |
+        sudo rm dist/*manylinux_2_17_x86_64.whl
+        sudo mv -v dist/*.whl .
     - name: Build manylinux Python 3.9 wheels
       uses: agates/python-wheels-manylinux-build@v0.5.1
       with:
@@ -42,7 +44,9 @@ jobs:
         pip-wheel-args: '-w ./dist --no-deps --no-build-isolation'
         system-packages: 'capnproto'
     - name: Move 3.9 wheel
-      run: sudo mv -v dist/*-manylinux_2_17_x86_64*.whl .
+      run: |
+        sudo rm dist/*manylinux_2_17_x86_64.whl
+        sudo mv -v dist/*.whl .
     - name: Build manylinux Python 3.10 wheels
       uses: agates/python-wheels-manylinux-build@v0.5.1
       with:
@@ -52,7 +56,9 @@ jobs:
         pip-wheel-args: '-w ./dist --no-deps --no-build-isolation'
         system-packages: 'capnproto'
     - name: Move 3.10 wheel
-      run: sudo mv -v dist/*-manylinux_2_17_x86_64*.whl .
+      run: |
+        sudo rm dist/*manylinux_2_17_x86_64.whl
+        sudo mv -v dist/*.whl .
     - name: Build manylinux Python 3.11 wheels
       uses: agates/python-wheels-manylinux-build@v0.5.1
       with:
@@ -62,7 +68,9 @@ jobs:
         pip-wheel-args: '-w ./dist --no-deps --no-build-isolation'
         system-packages: 'capnproto'
     - name: Move 3.11 wheel
-      run: sudo mv -v dist/*-manylinux_2_17_x86_64*.whl .
+      run: |
+        sudo rm dist/*manylinux_2_17_x86_64.whl
+        sudo mv -v dist/*.whl .
     - name: Build manylinux Python3 pypy wheels
       uses: agates/python-wheels-manylinux-build@v0.5.1
       with:
@@ -86,8 +94,7 @@ jobs:
     #    TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
     #    TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
     #  run: |
-    #    twine upload dist/*-py3-none-any.whl
-    #    twine upload dist/*-manylinux*.whl
+    #    twine upload *.whl
     #    twine upload dist/*.tar.gz
     - name: Release
       uses: softprops/action-gh-release@v1
