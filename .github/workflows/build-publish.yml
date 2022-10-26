@@ -80,13 +80,6 @@ jobs:
         sudo mv -v "$old" "$new"
     - name: Build sdist
       run: poetry build --format sdist
-    #- name: Publish wheels to PyPI
-    #  env:
-    #    TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
-    #    TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
-    #  run: |
-    #    twine upload dist/*.whl
-    #    twine upload dist/*.tar.gz
     - name: Release
       uses: softprops/action-gh-release@v1
       if: startsWith(github.ref, 'refs/tags/')
@@ -94,3 +87,10 @@ jobs:
         files: |
           dist/*.whl
           dist/*.tar.gz
+    - name: Publish wheels to PyPI
+      env:
+        TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
+        TWINE_PASSWORD: ${{ secrets.PYPI_TOKEN }}
+      run: |
+        twine upload dist/*.whl
+        twine upload dist/*.tar.gz
