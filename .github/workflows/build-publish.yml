@@ -24,7 +24,7 @@ jobs:
     - name: Copy schema files from upstream
       run: ./copy-schema-files.sh
     - name: Build manylinux Python 3.8 wheels
-      uses: agates/python-wheels-manylinux-build@v0.5.2
+      uses: agates/python-wheels-manylinux-build@v0.5.3
       with:
         pre-build-command: 'sh pre-build.sh'
         python-versions: 'cp38-cp38'
@@ -34,7 +34,7 @@ jobs:
     - name: Remove obsolete wheels
       run: sudo rm dist/*manylinux_2_17_x86_64.whl
     - name: Build manylinux Python 3.9 wheels
-      uses: agates/python-wheels-manylinux-build@v0.5.2
+      uses: agates/python-wheels-manylinux-build@v0.5.3
       with:
         pre-build-command: 'sh pre-build.sh'
         python-versions: 'cp39-cp39'
@@ -44,7 +44,7 @@ jobs:
     - name: Remove obsolete wheels
       run: sudo rm dist/*manylinux_2_17_x86_64.whl
     - name: Build manylinux Python 3.10 wheels
-      uses: agates/python-wheels-manylinux-build@v0.5.2
+      uses: agates/python-wheels-manylinux-build@v0.5.3
       with:
         pre-build-command: 'sh pre-build.sh'
         python-versions: 'cp310-cp310'
@@ -54,7 +54,7 @@ jobs:
     - name: Remove obsolete wheels
       run: sudo rm dist/*manylinux_2_17_x86_64.whl
     - name: Build manylinux Python 3.11 wheels
-      uses: agates/python-wheels-manylinux-build@v0.5.2
+      uses: agates/python-wheels-manylinux-build@v0.5.3
       with:
         pre-build-command: 'sh pre-build.sh'
         python-versions: 'cp311-cp311'
@@ -64,7 +64,7 @@ jobs:
     - name: Remove obsolete wheels
       run: sudo rm dist/*manylinux_2_17_x86_64.whl
     - name: Build manylinux Python3 pypy wheels
-      uses: agates/python-wheels-manylinux-build@v0.5.2
+      uses: agates/python-wheels-manylinux-build@v0.5.3
       with:
         pre-build-command: 'sh pre-build.sh'
         python-versions: 'pp39-pypy39_pp73'
