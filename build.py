@@ -32,7 +32,7 @@ class SetupKwargsProxy:
         self._d["ext_modules"] = v
 
 
-schema_files = glob.glob("src/podping_schemas/**/*.capnp", recursive=True)
+schema_files = glob.glob("podping_schemas/**/*.capnp", recursive=True)
 
 
 def build(setup_kwargs):

@@ -1,6 +1,6 @@
 .python-version
-src/podping_schemas/**
-!src/podping_schemas/__init__.py
+podping_schemas/**
+!podping_schemas/__init__.py
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

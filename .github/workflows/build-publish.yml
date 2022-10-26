@@ -28,7 +28,7 @@ jobs:
       with:
         pre-build-command: 'sh pre-build.sh'
         python-versions: 'cp38-cp38'
-        build-requirements: 'poetry-core setuptools https://github.com/agates/capnpy/releases/download/0.9.1dev0/capnpy-0.9.1.dev0-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_28_x86_64.whl'
+        build-requirements: 'poetry-core setuptools capnpy'
         pip-wheel-args: '-w ./dist --no-deps --no-build-isolation'
         system-packages: 'capnproto'
     - name: Remove obsolete wheels
@@ -38,7 +38,7 @@ jobs:
       with:
         pre-build-command: 'sh pre-build.sh'
         python-versions: 'cp39-cp39'
-        build-requirements: 'poetry-core setuptools https://github.com/agates/capnpy/releases/download/0.9.1dev0/capnpy-0.9.1.dev0-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_28_x86_64.whl'
+        build-requirements: 'poetry-core setuptools capnpy'
         pip-wheel-args: '-w ./dist --no-deps --no-build-isolation'
         system-packages: 'capnproto'
     - name: Remove obsolete wheels
@@ -48,7 +48,7 @@ jobs:
       with:
         pre-build-command: 'sh pre-build.sh'
         python-versions: 'cp310-cp310'
-        build-requirements: 'poetry-core setuptools https://github.com/agates/capnpy/releases/download/0.9.1dev0/capnpy-0.9.1.dev0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_28_x86_64.whl'
+        build-requirements: 'poetry-core setuptools capnpy'
         pip-wheel-args: '-w ./dist --no-deps --no-build-isolation'
         system-packages: 'capnproto'
     - name: Remove obsolete wheels
@@ -59,7 +59,7 @@ jobs:
     #  with:
     #    pre-build-command: 'sh pre-build.sh'
     #    python-versions: 'cp311-cp311'
-    #    build-requirements: 'poetry-core setuptools https://github.com/agates/capnpy/releases/download/0.9.1dev0/capnpy-0.9.1.dev0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_28_x86_64.whl'
+    #    build-requirements: 'poetry-core setuptools capnpy'
     #    pip-wheel-args: '-w ./dist --no-deps --no-build-isolation'
     #    system-packages: 'capnproto'
     #- name: Remove obsolete wheels
@@ -69,7 +69,7 @@ jobs:
       with:
         pre-build-command: 'sh pre-build.sh'
         python-versions: 'pp39-pypy39_pp73'
-        build-requirements: 'poetry-core setuptools https://github.com/agates/capnpy/releases/download/0.9.1dev0/capnpy-0.9.1.dev0-py3-none-any.whl'
+        build-requirements: 'poetry-core setuptools capnpy'
         pip-wheel-args: '-w ./dist --no-deps --no-build-isolation'
         system-packages: 'capnproto'
     - name: Remove empty pypy wheel
@@ -79,7 +79,7 @@ jobs:
       with:
         pre-build-command: 'sh pre-build.sh'
         python-versions: 'pp39-pypy39_pp73'
-        build-requirements: 'poetry-core setuptools https://github.com/agates/capnpy/releases/download/0.9.1dev0/capnpy-0.9.1.dev0-py3-none-any.whl'
+        build-requirements: 'poetry-core setuptools capnpy'
         pip-wheel-args: '-w ./dist --no-deps --no-build-isolation'
         system-packages: 'capnproto'
     - name: Fix dist permissions

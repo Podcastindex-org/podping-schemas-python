@@ -1,7 +1,7 @@
 #!/bin/bash
 
 submodule_path="podping-schemas"
-package_path="src/podping_schemas"
+package_path="podping_schemas"
 
 readarray -d '' paths_to_copy < <(find "${submodule_path}/schema/" -mindepth 1 -maxdepth 1 -print0)
 
@@ -10,10 +10,14 @@ do
     cp -r "${path}" "${package_path}"
 done
 
+# Make capnpy imports use to this module
+find "${package_path}" -name '*.capnp' -exec sed -i -e 's/\/schema\//\/podping_schemas\//g' {} \;
+
 readarray -d '' module_directories < <(find "${package_path}" -type d -not \( -path "*/__pycache__" \) -print0)
 
 for module in "${module_directories[@]}"
 do
+    echo "Found ${module}"
     echo "Touching ${module}/__init__.py"
     touch "${module}/__init__.py"
 done
