@@ -64,6 +64,16 @@ jobs:
     #    system-packages: 'capnproto'
     #- name: Remove obsolete wheels
     #  run: sudo rm dist/*manylinux_2_17_x86_64.whl
+    - name: Build python files #(Yes this is redundant but poetry wont include python files in wheels that don't exist when it starts)
+      uses: agates/python-wheels-manylinux-build@v0.5.4
+      with:
+        pre-build-command: 'sh pre-build.sh'
+        python-versions: 'pp39-pypy39_pp73'
+        build-requirements: 'poetry-core setuptools https://github.com/agates/capnpy/releases/download/0.9.1dev0/capnpy-0.9.1.dev0-py3-none-any.whl'
+        pip-wheel-args: '-w ./dist --no-deps --no-build-isolation'
+        system-packages: 'capnproto'
+    - name: Remove empty pypy wheel
+      run: sudo rm dist/*pp39-pypy39_pp73*.whl
     - name: Build manylinux Python3 pypy wheels
       uses: agates/python-wheels-manylinux-build@v0.5.4
       with:
