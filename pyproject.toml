@@ -5,12 +5,11 @@ description = ""
 authors = ["Alecks Gates <alecks@podping.org>"]
 license = "MIT"
 readme = "README.md"
-packages = [{include = "podping_schemas", from = "src"}]
 build = "build.py"
 include = [
-    { path = "src/**/*.capnp", format = "sdist" },
-    { path = "src/**/*.py", format = "wheel" },
-    { path = "src/**/*.so", format = "wheel"},
+    { path = "src/podping_schemas/**/*.capnp", format = "sdist" },
+    { path = "src/podping_schemas/**/*.py" },
+    { path = "src/podping_schemas/**/*.so", format = "wheel"},
 ]
 # oct 2022 exclude in poetry 1.2 doesn't seem to work - agates
 exclude = [
