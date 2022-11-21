@@ -16,7 +16,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v1
       with:
-        python-version: '3.10'
+        python-version: '3.11'
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
@@ -24,7 +24,7 @@ jobs:
     - name: Copy schema files from upstream
       run: ./copy-schema-files.sh
     - name: Build manylinux Python 3.8 wheels
-      uses: agates/python-wheels-manylinux-build@v0.5.4
+      uses: agates/python-wheels-manylinux-build@v0.5.5
       with:
         pre-build-command: 'sh pre-build.sh'
         python-versions: 'cp38-cp38'
@@ -34,7 +34,7 @@ jobs:
     - name: Remove obsolete wheels
       run: sudo rm dist/*manylinux_2_17_x86_64.whl
     - name: Build manylinux Python 3.9 wheels
-      uses: agates/python-wheels-manylinux-build@v0.5.4
+      uses: agates/python-wheels-manylinux-build@v0.5.5
       with:
         pre-build-command: 'sh pre-build.sh'
         python-versions: 'cp39-cp39'
@@ -44,7 +44,7 @@ jobs:
     - name: Remove obsolete wheels
       run: sudo rm dist/*manylinux_2_17_x86_64.whl
     - name: Build manylinux Python 3.10 wheels
-      uses: agates/python-wheels-manylinux-build@v0.5.4
+      uses: agates/python-wheels-manylinux-build@v0.5.5
       with:
         pre-build-command: 'sh pre-build.sh'
         python-versions: 'cp310-cp310'
@@ -53,19 +53,18 @@ jobs:
         system-packages: 'capnproto'
     - name: Remove obsolete wheels
       run: sudo rm dist/*manylinux_2_17_x86_64.whl
-    # Oct 2022 3.11 builds aren't working, probably needs capnpy support - agates
-    #- name: Build manylinux Python 3.11 wheels
-    #  uses: agates/python-wheels-manylinux-build@v0.5.4
-    #  with:
-    #    pre-build-command: 'sh pre-build.sh'
-    #    python-versions: 'cp311-cp311'
-    #    build-requirements: 'poetry-core setuptools capnpy'
-    #    pip-wheel-args: '-w ./dist --no-deps --no-build-isolation'
-    #    system-packages: 'capnproto'
-    #- name: Remove obsolete wheels
-    #  run: sudo rm dist/*manylinux_2_17_x86_64.whl
+    - name: Build manylinux Python 3.11 wheels
+      uses: agates/python-wheels-manylinux-build@v0.5.5
+      with:
+        pre-build-command: 'sh pre-build.sh'
+        python-versions: 'cp311-cp311'
+        build-requirements: 'poetry-core setuptools capnpy'
+        pip-wheel-args: '-w ./dist --no-deps --no-build-isolation'
+        system-packages: 'capnproto'
+    - name: Remove obsolete wheels
+      run: sudo rm dist/*manylinux_2_17_x86_64.whl
     - name: Build python files #(Yes this is redundant but poetry wont include python files in wheels that don't exist when it starts)
-      uses: agates/python-wheels-manylinux-build@v0.5.4
+      uses: agates/python-wheels-manylinux-build@v0.5.5
       with:
         pre-build-command: 'sh pre-build.sh'
         python-versions: 'pp39-pypy39_pp73'
@@ -75,7 +74,7 @@ jobs:
     - name: Remove empty pypy wheel
       run: sudo rm dist/*pp39-pypy39_pp73*.whl
     - name: Build manylinux Python3 pypy wheels
-      uses: agates/python-wheels-manylinux-build@v0.5.4
+      uses: agates/python-wheels-manylinux-build@v0.5.5
       with:
         pre-build-command: 'sh pre-build.sh'
         python-versions: 'pp39-pypy39_pp73'
