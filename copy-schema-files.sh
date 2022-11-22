@@ -3,6 +3,8 @@
 submodule_path="podping-schemas"
 package_path="podping_schemas"
 
+mkdir -p "${package_path}"
+
 readarray -d '' paths_to_copy < <(find "${submodule_path}/schema/" -mindepth 1 -maxdepth 1 -print0)
 
 for path in "${paths_to_copy[@]}"
