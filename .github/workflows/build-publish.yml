@@ -22,6 +22,10 @@ jobs:
         python -m pip install --upgrade pip
         sudo apt install -y capnproto build-essential
         pip install poetry twine poetry-core setuptools capnpy-agates
+    - name: Make build dir with correct permissions
+      run: |
+        sudo mkdir build
+        sudo chmod -R 777 build
     - name: Copy schema files from upstream
       run: ./copy-schema-files.sh
     - name: Build manylinux Python 3.8 wheels
