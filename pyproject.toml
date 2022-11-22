@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "podping-schemas"
-version = "0.1.0a14"
+version = "0.1.0a15"
 description = ""
 authors = ["Alecks Gates <alecks@podping.org>"]
 license = "MIT"
