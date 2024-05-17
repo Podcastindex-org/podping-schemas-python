@@ -8,7 +8,7 @@ readme = "README.md"
 include = [
     { path = "podping_schemas/**/*.capnp", format = "sdist" },
     { path = "podping_schemas/**/*.json", format = ["sdist", "wheel"] },
-    { path = "podping_schemas/**/*.py", format = "wheel" },
+    { path = "podping_schemas/**/*.py", format = ["sdist", "wheel"] },
     { path = "podping_schemas/**/*.so", format = "wheel" },
 ]
 exclude = [
