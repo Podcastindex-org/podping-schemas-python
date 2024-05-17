@@ -1,0 +1,8 @@
+import python_jsonschema_objects as pjs
+
+schema = {{schema_dict}}
+
+builder = pjs.ObjectBuilder(schema)
+jsonschema_namespace = builder.build_classes()
+
+{{class_name}} = jsonschema_namespace[schema["title"]]

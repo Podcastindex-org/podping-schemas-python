@@ -2,6 +2,8 @@ import glob
 
 from capnpy.compiler.distutils import capnpy_schemas
 
+from generate_python_json_class import json_schemas
+
 
 class SetupKwargsProxy:
     def __init__(self, d):
@@ -32,8 +34,10 @@ class SetupKwargsProxy:
         self._d["ext_modules"] = v
 
 
-schema_files = glob.glob("podping_schemas/**/*.capnp", recursive=True)
+capnpy_schema_files = glob.glob("podping_schemas/**/*.capnp", recursive=True)
+json_schema_files = glob.glob("podping_schemas/**/*.json", recursive=True)
 
 
 def build(setup_kwargs):
-    capnpy_schemas(SetupKwargsProxy(setup_kwargs), "capnpy_schemas", schema_files)
+    capnpy_schemas(SetupKwargsProxy(setup_kwargs), "capnpy_schemas", capnpy_schema_files)
+    json_schemas(json_schema_files)
