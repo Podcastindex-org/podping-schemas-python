@@ -28,7 +28,7 @@ jobs:
       with:
         pre-build-command: 'sh pre-build.sh'
         python-versions: 'cp39-cp39'
-        build-requirements: 'poetry-core setuptools capnpy'
+        build-requirements: 'capnpy jinja2 poetry-core setuptools'
         pip-wheel-args: '-w ./dist --no-deps --no-build-isolation'
         system-packages: 'capnproto'
     - name: Remove obsolete wheels
@@ -38,7 +38,7 @@ jobs:
       with:
         pre-build-command: 'sh pre-build.sh'
         python-versions: 'cp310-cp310'
-        build-requirements: 'poetry-core setuptools capnpy'
+        build-requirements: 'capnpy jinja2 poetry-core setuptools'
         pip-wheel-args: '-w ./dist --no-deps --no-build-isolation'
         system-packages: 'capnproto'
     - name: Remove obsolete wheels
@@ -48,7 +48,7 @@ jobs:
       with:
         pre-build-command: 'sh pre-build.sh'
         python-versions: 'cp311-cp311'
-        build-requirements: 'poetry-core setuptools capnpy'
+        build-requirements: 'capnpy jinja2 poetry-core setuptools'
         pip-wheel-args: '-w ./dist --no-deps --no-build-isolation'
         system-packages: 'capnproto'
     - name: Remove obsolete wheels
@@ -58,7 +58,7 @@ jobs:
       with:
         pre-build-command: 'sh pre-build.sh'
         python-versions: 'pp39-pypy39_pp73'
-        build-requirements: 'poetry-core setuptools capnpy'
+        build-requirements: 'capnpy jinja2 poetry-core setuptools'
         pip-wheel-args: '-w ./dist --no-deps --no-build-isolation'
         system-packages: 'capnproto'
     - name: Remove empty pypy wheel
@@ -68,7 +68,7 @@ jobs:
       with:
         pre-build-command: 'sh pre-build.sh'
         python-versions: 'pp39-pypy39_pp73'
-        build-requirements: 'poetry-core setuptools capnpy'
+        build-requirements: 'capnpy jinja2 poetry-core setuptools'
         pip-wheel-args: '-w ./dist --no-deps --no-build-isolation'
         system-packages: 'capnproto'
     - name: Fix dist permissions
