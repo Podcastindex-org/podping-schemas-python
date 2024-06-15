@@ -5,15 +5,10 @@ package_path="podping_schemas"
 
 mkdir -p "${package_path}"
 
-readarray -d '' paths_to_copy < <(find "${submodule_path}/schema/" -mindepth 1 -maxdepth 1 -print0)
-
-for path in "${paths_to_copy[@]}"
-do
-    cp -r "${path}" "${package_path}"
-done
+rsync -ra "${submodule_path}/schema/" "${package_path}/"
 
 # Make capnpy imports use to this module
-find "${package_path}" -name '*.capnp' -exec sed -i -e 's/\/schema\//\/podping_schemas\//g' {} \;
+find "${package_path}" -name '*.capnp' -type f -exec sed -i -E 's/\/schema\//\/podping_schemas\//g' {} \;
 
 readarray -d '' module_directories < <(find "${package_path}" -type d -not \( -path "*/__pycache__" \) -print0)
 

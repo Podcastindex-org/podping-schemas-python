@@ -1,4 +1,4 @@
 [submodule "podping-schemas"]
 	path = podping-schemas
 	url = https://github.com/Podcastindex-org/podping-schemas.git
-	tag = v2024.05.17.034306
+	tag = v2024.06.14.033937
