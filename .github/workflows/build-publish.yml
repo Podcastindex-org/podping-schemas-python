@@ -32,7 +32,7 @@ jobs:
         pip-wheel-args: '-w ./dist --no-deps --no-build-isolation'
         system-packages: 'capnproto'
     - name: Remove obsolete wheels
-      run: sudo rm dist/*manylinux_2_17_x86_64.whl
+      run: sudo rm -f dist/*manylinux_2_5_x86_64.whl dist/*manylinux_2_17_x86_64.whl
     - name: Build manylinux Python 3.10 wheels
       uses: RalfG/python-wheels-manylinux-build@v0.6.0
       with:
@@ -42,7 +42,7 @@ jobs:
         pip-wheel-args: '-w ./dist --no-deps --no-build-isolation'
         system-packages: 'capnproto'
     - name: Remove obsolete wheels
-      run: sudo rm dist/*manylinux_2_5_x86_64.whl
+      run: sudo rm -f dist/*manylinux_2_5_x86_64.whl dist/*manylinux_2_17_x86_64.whl
     - name: Build manylinux Python 3.11 wheels
       uses: RalfG/python-wheels-manylinux-build@v0.6.0
       with:
@@ -52,7 +52,7 @@ jobs:
         pip-wheel-args: '-w ./dist --no-deps --no-build-isolation'
         system-packages: 'capnproto'
     - name: Remove obsolete wheels
-      run: sudo rm dist/*manylinux_2_5_x86_64.whl
+      run: sudo rm -f dist/*manylinux_2_5_x86_64.whl dist/*manylinux_2_17_x86_64.whl
     - name: Build python files #(Yes this is redundant but poetry wont include python files in wheels that don't exist when it starts)
       uses: RalfG/python-wheels-manylinux-build@v0.6.0
       with:
