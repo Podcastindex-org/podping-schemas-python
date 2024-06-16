@@ -23,6 +23,8 @@ jobs:
         pip install poetry twine
     - name: Copy schema files from upstream
       run: ./copy-schema-files.sh
+    - name: List all capnp files
+      run: find podping_schemas -name "*.capnp" -exec ls -l {} \;
     - name: Build manylinux Python 3.9 wheels
       uses: RalfG/python-wheels-manylinux-build@v0.6.0
       with:
