@@ -34,11 +34,7 @@ class SetupKwargsProxy:
         self._d["ext_modules"] = v
 
 
-capnpy_schema_files = [
-    p for p in
-    glob.glob("podping_schemas/**/*.capnp", recursive=True)
-    if not p.endswith("rust.capnp")
-]
+capnpy_schema_files = glob.glob("podping_schemas/**/*.capnp", recursive=True)
 json_schema_files = glob.glob("podping_schemas/**/*.json", recursive=True)
 
 
